@@ -1,15 +1,11 @@
 import { createApp } from 'vue'
-import './tailwind.css'
+import { createStore } from 'vuex'
 import App from './App.vue'
-import { routes } from './routes.js'
-import { createRouter, createWebHistory } from 'vue-router'
+import { router } from './router'
+import { store } from './store'
+import './assets/scss/tailwind.scss'
 
 const app = createApp(App)
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-})
-
 app.use(router)
+app.use(createStore(store))
 app.mount('#app')
